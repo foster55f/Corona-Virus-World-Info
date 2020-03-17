@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { addCoronaStats } from '../actions';
 import { Header } from './Header';
+import { Route} from 'react-router-dom';
 
 
 function App() {
@@ -20,8 +21,11 @@ function App() {
   
   
   return (
-    <div className = 'header'>
-     <Header/>
+    <div className ='header'>
+    <Route path='/' render={() => {
+      return <Header/>
+      }}
+    />
     </div>
   );
 }
