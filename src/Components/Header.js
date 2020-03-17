@@ -1,7 +1,6 @@
-import logo from './logo.svg';
 import React from 'react';
 import './Header.css';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector} from 'react-redux';
 
 export function Header() {
     const cases = useSelector(state => state.stats.cases);

@@ -1,8 +1,7 @@
-import logo from './logo.svg';
 import './App.css';
 import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { addCoronaStats } from './actions';
+import { useDispatch } from 'react-redux';
+import { addCoronaStats } from '../actions';
 import { Header } from './Header';
 
 
