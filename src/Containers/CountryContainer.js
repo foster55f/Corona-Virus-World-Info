@@ -1,12 +1,15 @@
 import CountryCard from '../Components/CountryCard';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import React, { useEffect } from 'react';
 import { addCountryStats } from '../actions';
+import './CountryContainer.css';
+
 
 
 
 
 export const CountryContainer = () => {
+    const countries = useSelector(state => state.countryStats);
     const dispatch = useDispatch()
     useEffect(() => {
       async function fetchData() {
@@ -19,22 +22,26 @@ export const CountryContainer = () => {
       fetchData();
     }, []); 
 
-  return (
-    <div className='movie-container'>
-      {/* {movies.map(film => {
+    const countryStats = countries.map(country => {
+          return (
+              <CountryCard
+                  country={country.country}
+                  cases={country.cases}
+                  todayCases={country.todayCases}
+                  deaths={country.todayDeaths}
+                  recovered={country.recovered}
+                  active={country.active}
+                  critical={country.critical}
+            />
+          )
+        });
+      
         return (
-          <MovieCard
-            key={film.id}
-            id={film.id}
-            title={film.title}
-            poster={film.poster_path}
-            averageRating={film.average_rating} */}
-          />
+          <main className='country-container'>
+            {countryStats}
+          </main>
         )
-      })}
-    </div>
-  )
-}
-
+      }
+      
 
 export default CountryContainer

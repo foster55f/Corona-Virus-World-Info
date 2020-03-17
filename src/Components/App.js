@@ -3,11 +3,12 @@ import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { addCoronaStats } from '../actions';
 import { Header } from './Header';
+import { withRouter } from 'react-router-dom';
 import { Route} from 'react-router-dom';
 import { CountryContainer } from '../Containers/CountryContainer';
 
 
-function App() {
+function App({history}) {
   const dispatch = useDispatch()
   useEffect(() => {
     async function fetchData() {
@@ -23,14 +24,13 @@ function App() {
   
   return (
     <div className ='header'>
-    <Route path='/' render={() => {
-      return <Header/>
+    <Route exact path='/' render={() => {
+        return <Header history={history}/>
       }}
     />
     <Route exact path='/countrycontainer' render={() => {
       return (
               <div >
-                <Header />
                 <CountryContainer /> 
             </div>
           )
@@ -41,6 +41,4 @@ function App() {
 }
 
 
-
-
-export default App;
+export default withRouter(App)

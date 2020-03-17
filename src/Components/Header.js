@@ -3,12 +3,12 @@ import './Header.css';
 import { useSelector } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
-export function Header({history}) {
+export const Header = ({ history }) => {
     const cases = useSelector(state => state.stats.cases);
     const deaths = useSelector(state => state.stats.deaths);
     const recovered = useSelector(state => state.stats.recovered);
 
-    const enterCountryInfo = () => {
+  const enterCountryInfo = () => {
       history.push(`/countrycontainer/`);
     }
   return (
