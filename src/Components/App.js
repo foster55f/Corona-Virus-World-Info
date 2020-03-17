@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { addCoronaStats } from '../actions';
 import { Header } from './Header';
 import { Route} from 'react-router-dom';
+import { CountryContainer } from '../Containers/CountryContainer';
 
 
 function App() {
@@ -24,6 +25,15 @@ function App() {
     <div className ='header'>
     <Route path='/' render={() => {
       return <Header/>
+      }}
+    />
+    <Route exact path='/' render={() => {
+      return (
+              <div >
+                <Header />
+                <CountryContainer /> 
+            </div>
+          )
       }}
     />
     </div>

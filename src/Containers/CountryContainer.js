@@ -1,14 +1,19 @@
-import React from 'react';
-import CountryCard from '../CountryCard';
+import CountryCard from '../Components/CountryCard';
+import { useDispatch } from 'react-redux';
+import React, { useEffect } from 'react';
+import { addCountryStats } from '../actions';
+
+
+
 
 export const CountryContainer = () => {
     const dispatch = useDispatch()
     useEffect(() => {
       async function fetchData() {
-        return fetch('https://coronavirus-19-api.herokuapp.com/all')
+        return fetch('https://coronavirus-19-api.herokuapp.com/countries')
         .then(response => response.json())
         .then(data => {
-          dispatch(addCoronaStats(data))
+          dispatch(addCountryStats(data))
         })
       }
       fetchData();
@@ -16,14 +21,14 @@ export const CountryContainer = () => {
 
   return (
     <div className='movie-container'>
-      {movies.map(film => {
+      {/* {movies.map(film => {
         return (
           <MovieCard
             key={film.id}
             id={film.id}
             title={film.title}
             poster={film.poster_path}
-            averageRating={film.average_rating}
+            averageRating={film.average_rating} */}
           />
         )
       })}
@@ -31,8 +36,5 @@ export const CountryContainer = () => {
   )
 }
 
-export const mapStateToProps = state => ({
-  movies: state.movies
-})
 
-export default connect(mapStateToProps)(MovieContainer)
+export default CountryContainer
