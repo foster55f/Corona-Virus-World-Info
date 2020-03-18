@@ -2,7 +2,7 @@ import './App.css';
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { addCoronaStats } from '../actions';
-import { Header } from './Header';
+import { Home } from './Home';
 import { withRouter } from 'react-router-dom';
 import { Route} from 'react-router-dom';
 import { CountryContainer } from '../Containers/CountryContainer';
@@ -25,7 +25,7 @@ function App({history}) {
   return (
     <div className ='header'>
     <Route exact path='/' render={() => {
-        return <Header history={history}/>
+        return <Home history={history}/>
       }}
     />
     <Route exact path='/countrycontainer' render={() => {

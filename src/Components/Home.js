@@ -1,9 +1,9 @@
 import React from 'react';
-import './Header.css';
+import './Home.css';
 import { useSelector } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
-export const Header = ({ history }) => {
+export const Home = ({ history }) => {
     const cases = useSelector(state => state.stats.cases);
     const deaths = useSelector(state => state.stats.deaths);
     const recovered = useSelector(state => state.stats.recovered);
@@ -23,4 +23,4 @@ export const Header = ({ history }) => {
 }
 
 
-export default withRouter(Header)
+export default withRouter(Home)
