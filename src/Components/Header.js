@@ -1,26 +1,20 @@
-import React from 'react';
+import React from 'react'
 import './Header.css';
-import { useSelector } from 'react-redux';
-import { withRouter } from 'react-router-dom';
 
-export const Header = ({ history }) => {
-    const cases = useSelector(state => state.stats.cases);
-    const deaths = useSelector(state => state.stats.deaths);
-    const recovered = useSelector(state => state.stats.recovered);
 
-  const enterCountryInfo = () => {
-      history.push(`/countrycontainer/`);
-    }
+export const Header = () => {
   return (
-      <div>   
-          <h1>Corona Virus Stats WorldWide</h1>
-          <h2>Cases: {cases}</h2>
-          <h2>Deaths: {deaths}</h2>
-      <h2>Recovered: {recovered}</h2>
-      <button onClick={enterCountryInfo}>Click button to see individual Country Info</button>
+    <>
+    <div className='header-background'>
+      <nav>
+        <h1 className='header-title'>Country Info</h1>
+        <input placeholder='Search For Specific Country'></input>
+      </nav>
     </div>
-  );
+    </>
+  )
 }
 
 
-export default withRouter(Header)
+
+export default (Header)
