@@ -1,3 +1,9 @@
 h1{
     text-decoration: underline;
 }
+
+button{
+    width: 75%;
+    border-radius: 10px;
+    height: 37px;
+}

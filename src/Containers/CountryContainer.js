@@ -5,9 +5,6 @@ import { addCountryStats } from '../actions';
 import './CountryContainer.css';
 
 
-
-
-
 export const CountryContainer = () => {
     const countries = useSelector(state => state.countryStats);
     const dispatch = useDispatch()
@@ -23,7 +20,7 @@ export const CountryContainer = () => {
     }, []); 
 
     const countryStats = countries.map(country => {
-          return (
+      return (
               <CountryCard
                   country={country.country}
                   cases={country.cases}
@@ -36,7 +33,7 @@ export const CountryContainer = () => {
           )
         });
       
-        return (
+  return (
           <main className='country-container'>
             {countryStats}
           </main>
