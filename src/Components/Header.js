@@ -5,18 +5,18 @@ import { useDispatch, useSelector} from 'react-redux';
 
 
 
-export const Header = () => {
+export const Header = ({history}) => {
   // state variable, initialized to 0
-  const [searchField, setSearchField] = useState('');
+  const [message, setMessage]= useState( '' );
   const dispatch = useDispatch()
-  var countries = useSelector(state => state.filteredCountries);
+  var countries = useSelector(state => state.countryStats);
 
 
 
   const handleSearch = (event) => {
-
+    history.push(`/searchcountrycontainer/`);
     const filteredCountries = countries.filter(country => {
-      return country.country.toLowerCase().includes(event.toLowerCase()) || country.country.toLowerCase().includes(event.toLowerCase())
+      return country.country.toLowerCase().includes(message.toLowerCase()) || country.country.toLowerCase().includes(message.toLowerCase())
     })
     dispatch(filterCountryStats(filteredCountries))
   }
@@ -29,7 +29,7 @@ export const Header = () => {
           type='text'
           placeholder='Search For Countries'
           name='title'
-          onChange={(event) => handleSearch(event.target.value)}
+          onChange={(event) => setMessage (event.target.value)}
         />
         <button onClick={() => handleSearch()} className="searchButton">Search</button>
                     

@@ -1,10 +1,10 @@
 import CountryCard from '../Components/CountryCard';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import React from 'react';
 
 
-export const SearchCountryContainer = () => {
-    const countries = useSelector(state => state.filteredCountryStats);
+export const SearchCountryContainer = ({history}) => {
+    const countries = useSelector(state => state.filteredCountries);
 
     const countryStats = countries.map(country => {
       return (
