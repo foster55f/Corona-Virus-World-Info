@@ -1,5 +1,7 @@
 import { filterCountryStats } from '../actions';
 import React, { useState } from 'react';
+import { useDispatch, useSelector} from 'react-redux';
+
 
 
 
@@ -7,15 +9,19 @@ export const Header = () => {
   // state variable, initialized to 0
   const [searchfield, setSearchField] = useState('');
   const [setFilteredCountries] = useState([]);
+  const dispatch = useDispatch()
+  const countries = useSelector(state => state.filteredCountryStats);
+
+
 
 
   const handleSearch = (event) => {
-    console.log('hii')
     event.preventDefault()
-    const filteredCountries = this.props.games.filter(game => {
-      return game.title.toLowerCase().includes(this.state.searchField.toLowerCase()) || game.title.toLowerCase().includes(this.state.searchField.toLowerCase())
+
+    const filteredCountries = countries.filter(country => {
+      return country.country.toLowerCase().includes(this.state.searchField.toLowerCase()) || country.country.toLowerCase().includes(this.state.searchField.toLowerCase())
     })
-    setFilteredCountries(filteredCountries)
+    dispatch(filterCountryStats(filteredCountries))
   }
 
   return (
