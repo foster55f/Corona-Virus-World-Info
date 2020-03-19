@@ -2,6 +2,8 @@ import CountryCard from '../Components/CountryCard';
 import { useDispatch, useSelector } from 'react-redux';
 import React, { useEffect } from 'react';
 import { addCountryStats } from '../actions';
+import { filterCountryStats } from '../actions';
+
 import './CountryContainer.css';
 
 
@@ -14,6 +16,7 @@ export const CountryContainer = () => {
         .then(response => response.json())
         .then(data => {
           dispatch(addCountryStats(data))
+          dispatch(filterCountryStats(data))
         })
       }
       fetchData();
