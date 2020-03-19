@@ -27,7 +27,7 @@ export const Header = ({history}) => {
         <input
           className='search-input'
           type='text'
-          placeholder='Search For Countries'
+          placeholder='Search By Country'
           name='title'
           onChange={(event) => setMessage (event.target.value)}
         />
