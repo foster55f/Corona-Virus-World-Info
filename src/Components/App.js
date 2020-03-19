@@ -34,7 +34,7 @@ function App({history}) {
     <Route exact path='/countrycontainer' render={() => {
       return (
             <div >
-                <Header /> 
+                <Header history={history}/> 
                 <CountryContainer /> 
             </div>
           )
@@ -43,8 +43,8 @@ function App({history}) {
           <Route exact path='/searchcountrycontainer' render={() => {
       return (
             <div >
-                <Header /> 
-          <SearchCountryContainer /> 
+                <Header history={history}/> 
+                <SearchCountryContainer /> 
             </div>
           )
       }}
