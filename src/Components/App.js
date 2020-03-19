@@ -1,12 +1,14 @@
 import './App.css';
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { addCoronaStats } from '../actions';
+import { addCoronaStats, filterCountryStats } from '../actions';
 import { Home } from './Home';
 import { Header } from './Header';
 import { withRouter } from 'react-router-dom';
 import { Route} from 'react-router-dom';
 import { CountryContainer } from '../Containers/CountryContainer';
+import { SearchCountryContainer } from '../Containers/SearchCountryContainer';
+
 
 
 function App({history}) {
@@ -34,6 +36,15 @@ function App({history}) {
             <div >
                 <Header /> 
                 <CountryContainer /> 
+            </div>
+          )
+      }}
+      />
+          <Route exact path='/searchcountrycontainer' render={() => {
+      return (
+            <div >
+                <Header /> 
+          <SearchCountryContainer /> 
             </div>
           )
       }}
